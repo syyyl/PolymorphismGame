@@ -1,4 +1,6 @@
-package game2;
+package game;
+
+import java.util.Random;
 
 public class Place {
 
@@ -10,13 +12,12 @@ public class Place {
     public Place() {}
 
 
-    protected   int search(int hp, double probability) {
+    protected int search(int hp, double probability) {
         if (Math.random() < probability) {
-            //int damage = (int) (Math.random() * 20) + 10;
             int damage = fixRandomNum(10, 20);
             hp -= damage;
             System.out.println("           좀비의 습격을 받았습니다!!!");
-            System.out.println("     HP : " + damage + " 감소, 현재 HP는 " + Math.max(0, Math.min(hp, 100)) + "입니다.");
+            System.out.println("       HP : " + damage + " 감소, 현재 HP는 " + Math.max(0, Math.min(hp, 100)) + "입니다.");
             return Math.max(0, Math.min(hp, 100));
         }else if(Math.random() == probability) {
             System.out.println("        아무런 일도 일어나지 않았습니다.");
@@ -25,16 +26,15 @@ public class Place {
             int recovery = fixRandomNum(10, 20);
             hp += recovery;
             System.out.println("     탐색에 성공하여 물자를 획득하셨습니다. ");
-            System.out.println("  HP : " + recovery + " 증가, 현재 HP는 " + Math.max(0, Math.min(hp, 100)) + "입니다.");
+            System.out.println("     HP : " + recovery + " 증가, 현재 HP는 " + Math.max(0, Math.min(hp, 100)) + "입니다.");
             return Math.max(0, Math.min(hp, 100));
         }
     }
-    protected  int sleep(int hp, double probability) {
+    protected int sleep(int hp, double probability) {
         if (Math.random() < probability) {
-            //int damage = (int) (Math.random() * 20) + 10;
             int damage = fixRandomNum(10, 20);
             hp -= damage;
-            System.out.println("           좀비의 습격을 받았습니다!!!");
+            System.out.println("    휴식하는 중 좀비의 습격을 받았습니다!!!");
             System.out.println("     HP : " + damage + " 감소, 현재 HP는 " + Math.max(0, Math.min(hp, 100)) + "입니다.");
             return Math.max(0, Math.min(hp, 100));
         }else if(Math.random() == probability) {
@@ -43,8 +43,8 @@ public class Place {
         }else {
             int recovery = fixRandomNum(10, 20);
             hp += recovery;
-            System.out.println("     탐색에 성공하여 물자를 획득하셨습니다. ");
-            System.out.println("  HP : " + recovery + " 증가, 현재 HP는 " + Math.max(0, Math.min(hp, 100)) + "입니다.");
+            System.out.println("     휴식에 성공하여 HP를 회복 하셨습니다. ");
+            System.out.println("     HP : " + recovery + " 증가, 현재 HP는 " + Math.max(0, Math.min(hp, 100)) + "입니다.");
             return Math.max(0, Math.min(hp, 100));
         }
     }
@@ -52,7 +52,7 @@ public class Place {
     protected static void choicePlace(){
         System.out.println();
         System.out.println("   하루가 지났습니다. 이동할 장소를 선택해주세요.");
-        System.out.println("         1.아파트   2.집   3.hi학원");
+        System.out.println("      1.아파트   2.집   3.hi학원  4.한강");
         System.out.println();
     }
     protected int fixRandomNum(int min, int max){

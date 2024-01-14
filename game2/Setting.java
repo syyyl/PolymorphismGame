@@ -1,4 +1,6 @@
-package game2;
+package game;
+
+import com.sun.security.jgss.GSSUtil;
 
 import java.util.Scanner;
 
@@ -31,25 +33,37 @@ public class Setting {
             System.out.println("└─────────────────────────────────────────┘");
             System.out.print("         게임 시작 0  │  게임 종료 9    : ");
         }
-        public void gameExitPrint() {
+    public void gameExitPrint() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println();
+        System.out.println();
+        System.out.println("┌─────────────────────────────────────────┐");
+        System.out.println("           게임을 종료 하시겠습니까?");
+        System.out.println("└─────────────────────────────────────────┘");
+        System.out.print("          게임 종료 0  │  돌아 가기 9    : ");
+        String str1 = sc.nextLine();
+        if(str1.toLowerCase().equals("0") /*|| str1.toLowerCase().equals("n")*/ ) {
+            System.out.println();
+            System.out.println();
+            System.out.println("게임을 종료합니다...");
+            System.exit(0);
+        } else if(str1.toLowerCase().equals("9")) {
+
+        }else {
+            System.out.println("잘못 입력하셨습니다. 다시 입력해 주세요.");
+        }
+    }
+        public void gameExitPrint2() {
             Scanner sc = new Scanner(System.in);
             System.out.println();
             System.out.println();
             System.out.println("┌─────────────────────────────────────────┐");
-            System.out.println("           게임을 종료 하시겠습니까?");
+            System.out.println("             게임을 종료 합니다.");
             System.out.println("└─────────────────────────────────────────┘");
-            System.out.print("          게임 종료 0  │  돌아 가기 9    : ");
-            String str1 = sc.nextLine();
-                if(str1.toLowerCase().equals("0") /*|| str1.toLowerCase().equals("n")*/ ) {
-                    System.out.println();
-                    System.out.println();
-                    System.out.println("게임을 종료합니다...");
-                    System.exit(0);
-                } else if(str1.toLowerCase().equals("9")) {
-
-                }else {
-                    System.out.println("잘못 입력하셨습니다. 다시 입력해 주세요.");
-                }
+            System.out.println();
+            System.out.println();
+            System.out.println("게임을 종료합니다...");
+            System.exit(0);
         }
         public void gameInfoPrint1() {
             System.out.println();
@@ -89,7 +103,7 @@ public class Setting {
 
 
         public void gameDayPrint(int countDay, int placeIndex) {
-            String[] placeName = {"아파트","집","hi학원"};
+            String[] placeName = {"아파트","집","hi학원","한강"};
             System.out.println();
             //System.out.println("┌─────────────────────────────────────────┐");
             System.out.println("      [ " + (countDay+1)+" 일차 ] " + "현재 위치는 '" + placeName[placeIndex] + "'입니다.");
@@ -103,15 +117,30 @@ public class Setting {
             System.out.println("         1.탐색  2.휴식  9.게임종료");
             System.out.println("└─────────────────────────────────────────┘");
         }
-        public void clearMessage() {
+        public void gameEndPrint() {
             System.out.println();
-            System.out.println("    축하합니다!! HP가 100이 되어 구역을 벗어나 ");
-            System.out.println("     구조지역으로 이동할 수 있게 되었습니다.");
-            System.out.println("      게임을 성공적으로 Clear 하셨습니다.");
+            System.out.println("===========================================");
             System.out.println();
-            System.out.println("게임을 종료합니다...");
+            System.out.println("           으윽! 좀비에게 물렸습니다.");
+            System.out.println("          HP가 0이 되어 사망하셨습니다.");
+            System.out.println("              게임을 종료 합니다... ");
+            System.out.println();
+            System.out.println("===========================================");
+            System.out.println();
             System.exit(0);
+        }
+        public void gameClearPrint() {
             System.out.println();
+            System.out.println("===========================================");
+            System.out.println();
+            System.out.println("                   축하합니다!");
+            System.out.println("좀비들을 피해 HP를 100 유지하며 구역을 빠져 나왔습니다.");
+            System.out.println("이제 이 구역을 벗어나 새로운 안전지대를 찾아 떠나십시오. ");
+            System.out.println("            당신의 생존을 응원합니다! ");
+            System.out.println();
+            System.out.println("               게임을 종료 합니다...");
+            System.out.println("===========================================");
+            System.exit(0);
         }
 
 
