@@ -40,6 +40,7 @@ public class Game {
         System.out.println("└─────────────────────────────────────────┘");
         System.out.println("              이름 : " + characterName);
         System.out.println("                HP : " + characterHp);
+        System.out.println();
     }
     public void gameExitPrint() {
         Scanner sc = new Scanner(System.in);
